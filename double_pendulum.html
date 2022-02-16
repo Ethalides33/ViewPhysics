@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>ViewPhysics</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <style>
+
+    input, select { 
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 16px;
+    color: #eee;
+    }
+    h1, h3 {
+    font-weight: 400;
+    }
+    h1 {
+    font-size: 32px;
+    }
+    h3 {
+    color: #1c87c9;
+    }
+    .main-block, .info {
+    display: flex;
+    flex-direction: column;
+    }
+    .main-block {
+    justify-content: center;
+    align-items: center;
+    width: 50%; 
+    min-height: 50%;
+    /*background: url("images/temp_logo.png") no-repeat center;
+    background-size: cover;*/
+    }
+    form {
+    width: 100%; 
+    padding: 25px;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    }
+    input, select {
+    padding: 5px;
+    margin-bottom: 20px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #eee;
+    }
+    input::placeholder {
+    color: #eee;
+    }
+    option {
+    background: black; 
+    border: none;
+    }
+    .metod {
+    display: flex; 
+    }
+    input[type=radio] {
+    display: none;
+    }
+    label.radio {
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+    text-indent: 32px;
+    cursor: pointer;
+    }
+    label.radio:before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    border: 2px solid #1c87c9;
+    }
+    label.radio:after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 4px;
+    top: 5px;
+    left: 5px;
+    border-bottom: 3px solid #1c87c9;
+    border-left: 3px solid #1c87c9;
+    transform: rotate(-45deg);
+    opacity: 0;
+    }
+    input[type=radio]:checked + label:after {
+    opacity: 1;
+    }
+    button {
+    display: block;
+    width: 100px;
+    padding: 10px;
+    margin: 20px auto 0;
+    border: none;
+    border-radius: 5px; 
+    background: #1c87c9; 
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    }
+    button:hover {
+    background: #095484;
+    }
+    @media (min-width: 568px) {
+    .info {
+    flex-flow: row wrap;
+    justify-content: space-between;
+    }
+    input {
+    width: 46%;
+    }
+    input.fname {
+    width: 100%;
+    }
+    select {
+    width: 48%;
+    }
+    }
+    canvas {
+  width: 100%;
+  height: auto;
+  background-size: 100% 100%;
+}
+
+  </style>
+
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+				<div class="p-4 pt-5">
+		  		<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(images/temp_logo.png);"></a>
+	        <ul class="list-unstyled components mb-5">
+	          <li>
+              <a href="index.html">Home</a>
+          </li>
+	          <li>
+	              <a href="#">About</a>
+	          </li>
+	          <li>
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Simulations</a>
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>Cinematics</li>
+                <ul>
+                  <li>
+                      <a href="free_fall.html">Free fall</a>
+                  </li>
+                  <li>
+                    <a href="viscous.html"> Viscous friction</a>
+                  </li>
+                </ul>
+                <li>Mechanics</li>
+                <ul>
+                  <li>
+                    <a href="double_pendulum.html">Double pendulum</a>
+                  </li>
+                </ul>
+                <li>Waves</li>
+                <ul>
+                  <li>
+                    <a href="doppler.html">Doppler effect</a>
+                  </li>
+                </ul>
+                <li>Mathematics</li>
+                <ul>
+                  <li>
+                    <a href="convolution.html">Convolution</a>
+                  </li>
+                </ul>
+              </ul>
+	          </li>
+	          <li>
+              <a href="#">Contact</a>
+	          </li>
+	        </ul>
+
+	        <div class="footer">
+	        	<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+	        </div>
+
+	      </div>
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      <div class="container">
+      <div class="row">
+        <!-- canvas -->
+        <div class="col-md-3">
+            <canvas id="double_pendulum_canvas_1_2d" width="250" height="250" style="position:absolute; border:2px solid black;">
+                Canvas not supported; please update your browser.
+            </canvas>
+            <canvas id="double_pendulum_canvas_1_3d" width="250" height="250" style="position:relative; border: 2px solid black;">
+                Canvas not supported; please update your browser.
+            </canvas>
+        </div>
+        <div class="col-md-3">
+            <canvas id="double_pendulum_canvas_2_2d" width="250" height="250" style="position:absolute; border:2px solid black;">
+                Canvas not supported; please update your browser.
+            </canvas>
+            <canvas id="double_pendulum_canvas_2_3d" width="250" height="250" style="position:relative; border:2px solid black;">
+                Canvas not supported; please update your browser.
+            </canvas>
+        </div>
+        <div class="col-md-3">
+            <canvas id="double_pendulum_canvas_3_2d" width="250" height="250" style="position:absolute;border:2px solid black;">
+                Canvas not supported; please update your browser.
+            </canvas>
+            <canvas id="double_pendulum_canvas_3_3d" width="250" height="250" style="position:relative;border:2px solid black;">
+                Canvas not supported; please update your browser.
+            </canvas>
+        </div>
+        <div class="col-md-3">
+          <p style="font-size:20px; color:black; "> Press "Space" to pause the simulation!</p>
+          <p style="font-size:20px; color:black; "> Press "R" to restart the simulation!</p>
+      </div>
+        
+        </div>
+        <div class="row">
+          <!-- canvas -->
+          <div class="col-md-3">
+              <canvas id="double_pendulum_DP1" width="250" height="250" style="position:relative; border:2px solid red;background-color: white;">
+                  Canvas not supported; please update your browser.
+              </canvas>
+          </div>
+          <div class="col-md-3">
+              <canvas id="double_pendulum_DP2" width="250" height="250" style="position:relative; border:2px solid red;background-color: white;">
+                  Canvas not supported; please update your browser.
+              </canvas>
+          </div>
+          <div class="col-md-3">
+              <canvas id="double_pendulum_DP3" width="250" height="250" style="position:relative;border:2px solid red;background-color: white;">
+                  Canvas not supported; please update your browser.
+              </canvas>
+          </div>
+          </div>
+        </div>
+      </div>
+		</div>
+
+    <script src="js/double_pendulum.js"></script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
