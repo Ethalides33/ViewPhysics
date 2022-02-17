@@ -1,81 +1,98 @@
 <!doctype html>
 <html lang="en">
-  <head>
-  	<title>ViewPhysics</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-		
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="css/style.css">
-  </head>
+<head>
+  <title>ViewPhysics</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <style>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
-    input, select { 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<style>
+  input,
+  select {
     padding: 0;
     margin: 0;
     outline: none;
     font-family: Roboto, Arial, sans-serif;
     font-size: 16px;
     color: #eee;
-    }
-    h1, h3 {
+  }
+
+  h1,
+  h3 {
     font-weight: 400;
-    }
-    h1 {
+  }
+
+  h1 {
     font-size: 32px;
-    }
-    h3 {
+  }
+
+  h3 {
     color: #1c87c9;
-    }
-    .main-block, .info {
+  }
+
+  .main-block,
+  .info {
     display: flex;
     flex-direction: column;
-    }
-    .main-block {
+  }
+
+  .main-block {
     justify-content: center;
     align-items: center;
-    width: 50%; 
+    width: 50%;
     min-height: 50%;
     /*background: url("images/temp_logo.png") no-repeat center;
     background-size: cover;*/
-    }
-    form {
-    width: 100%; 
+  }
+
+  form {
+    width: 100%;
     padding: 25px;
     margin-bottom: 20px;
     background: rgba(0, 0, 0, 0.9);
-    }
-    input, select {
+  }
+
+  input,
+  select {
     padding: 5px;
     margin-bottom: 20px;
     background: transparent;
     border: none;
     border-bottom: 1px solid #eee;
-    }
-    input::placeholder {
+  }
+
+  input::placeholder {
     color: #eee;
-    }
-    option {
-    background: black; 
+  }
+
+  option {
+    background: black;
     border: none;
-    }
-    .metod {
-    display: flex; 
-    }
-    input[type=radio] {
+  }
+
+  .metod {
+    display: flex;
+  }
+
+  input[type=radio] {
     display: none;
-    }
-    label.radio {
+  }
+
+  label.radio {
     position: relative;
     display: inline-block;
     margin-right: 20px;
     text-indent: 32px;
     cursor: pointer;
-    }
-    label.radio:before {
+  }
+
+  label.radio:before {
     content: "";
     position: absolute;
     top: -1px;
@@ -84,8 +101,9 @@
     height: 17px;
     border-radius: 50%;
     border: 2px solid #1c87c9;
-    }
-    label.radio:after {
+  }
+
+  label.radio:after {
     content: "";
     position: absolute;
     width: 8px;
@@ -96,281 +114,307 @@
     border-left: 3px solid #1c87c9;
     transform: rotate(-45deg);
     opacity: 0;
-    }
-    input[type=radio]:checked + label:after {
+  }
+
+  input[type=radio]:checked+label:after {
     opacity: 1;
-    }
-    button {
+  }
+
+  button {
     display: block;
     width: 100px;
     padding: 10px;
     margin: 20px auto 0;
     border: none;
-    border-radius: 5px; 
-    background: #1c87c9; 
+    border-radius: 5px;
+    background: #1c87c9;
     font-size: 14px;
     font-weight: 600;
     color: #fff;
-    }
-    button:hover {
+  }
+
+  button:hover {
     background: #095484;
-    }
-    @media (min-width: 568px) {
+  }
+
+  @media (min-width: 568px) {
     .info {
-    flex-flow: row wrap;
-    justify-content: space-between;
+      flex-flow: row wrap;
+      justify-content: space-between;
     }
+
     input {
-    width: 46%;
+      width: 46%;
     }
+
     input.fname {
-    width: 100%;
+      width: 100%;
     }
+
     select {
-    width: 48%;
+      width: 48%;
     }
-    }
-    canvas {
-  width: 100%;
-  height: auto;
-  background-size: 100% 100%;
-}
+  }
 
-  </style>
+  canvas {
+    width: 100%;
+    height: auto;
+    background-size: 100% 100%;
+  }
+</style>
 
-  <body>
-		
-		<div class="wrapper d-flex align-items-stretch">
-			<nav id="sidebar">
-				<div class="p-4 pt-5">
-		  		<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(images/temp_logo.png);"></a>
-	        <ul class="list-unstyled components mb-5">
-	          <li>
-              <a href="index.html">Home</a>
+<body>
+
+  <div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar">
+      <div class="p-4 pt-5">
+        <a href="index.html" class="img logo rounded-circle mb-5"
+          style="background-image: url(images/temp_logo.png);"></a>
+        <ul class="list-unstyled components mb-5">
+          <li>
+            <a href="index.html">Home</a>
           </li>
-	          <li>
-	              <a href="#">About</a>
-	          </li>
-	          <li>
-              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Simulations</a>
-              <ul class="collapse list-unstyled" id="pageSubmenu">
-                <li>Cinematics</li>
-                <ul>
-                  <li>
-                      <a href="free_fall.html">Free fall</a>
-                  </li>
-                  <li>
-                    <a href="viscous.html"> Viscous friction</a>
-                  </li>
-                </ul>
-                <li>Mechanics</li>
-                <ul>
-                  <li>
-                    <a href="double_pendulum.html">Double pendulum</a>
-                  </li>
-                </ul>
-                <li>Waves</li>
-                <ul>
-                  <li>
-                    <a href="doppler.html">Doppler effect</a>
-                  </li>
-                </ul>
-                <li>Mathematics</li>
-                <ul>
-                  <li>
-                    <a href="convolution.html">Convolution</a>
-                  </li>
-                </ul>
-              </ul>
-	          </li>
-	          <li>
-              <a href="#">Contact</a>
-	          </li>
-	        </ul>
-
-	        <div class="footer">
-	        	<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
-						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-	        </div>
-
-	      </div>
-    	</nav>
-
-        <!-- Page Content  -->
-      <div id="content" class="p-4 p-md-5">
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container-fluid">
-
-            <button type="button" id="sidebarCollapse" class="btn btn-primary">
-              <i class="fa fa-bars"></i>
-              <span class="sr-only">Toggle Menu</span>
-            </button>
-            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
+          <li>
+            <a href="about.html">About</a>
+          </li>
+          <li>
+            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Simulations</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu">
+              <li>Cinematics</li>
+              <ul>
+                <li>
+                  <a href="free_fall.html">Free fall</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                <li>
+                  <a href="viscous.html"> Viscous friction</a>
                 </li>
               </ul>
+              <li>Mechanics</li>
+              <ul>
+                <li>
+                  <a href="double_pendulum.html">Double pendulum</a>
+                </li>
+              </ul>
+              <li>Waves</li>
+              <ul>
+                <li>
+                  <a href="doppler.html">Doppler effect</a>
+                </li>
+              </ul>
+              <li>Mathematics</li>
+              <ul>
+                <li>
+                  <a href="convolution.html">Convolution</a>
+                </li>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a href="contact.html">Contact</a>
+          </li>
+        </ul>
+
+        <div class="footer">
+          <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;
+            <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with
+            <i class="fa fa-heart" style="font-size:15px;color:red" aria-hidden="true"></i> by <a
+              href="https://colorlib.com" target="_blank">Colorlib.com</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
+        </div>
+
+      </div>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content" class="p-4 p-md-5">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+
+          <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Toggle Menu</span>
+          </button>
+          <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="row">
+          <!-- canvas -->
+          <div class="col-md-12">
+            <img src="images/road3.jpg" width="800" height="200" style="position:absolute; width:98%; height:auto;">
+            <canvas id="free_fall_canvas" width="800" height="200"
+              style="position:relative; background-color: transparent;">
+              Canvas not supported; please update your browser.
+            </canvas>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6" style="display:inline-block;">
+              <p>Frequency = <span style="color:rgb(4, 4, 43)" id="frequencyReadout">5</span> Hz
+                <input oninput="showFrequency();" onchange="showFrequency();" type="range" min="1" max="20" step="1"
+                  value="5" id="frequencySlider">
+              </p>
+              <p>Source speed = <span style="color:rgb(4, 4, 43)" id="sourcespeedReadout">20</span> m/s
+                <input oninput="showsourcespeed();" onchange="showsourcespeed();" type="range" min="0" max="360"
+                  step="20" value="20" id="sourcespeedSlider">
+              </p>
+
+            </div>
+            <div class="pull-right col">
+              <button href="javascript:void(0)" onclick="startSim();" class="button">Drive</button>
+            </div>
+            <div class="pull-right col">
+              <button href="javascript:void(0)" onclick="stopSim();" class="button">Pause</button>
             </div>
           </div>
-        </nav>
-      <div class="container">
-      <div class="row">
-        <!-- canvas -->
-        <div class="col-md-12">
-            <img src="images/road3.jpg" width="800" height="200" style="position:absolute; width:98%; height:auto;" >
-            <canvas id="free_fall_canvas" width="800" height="200" style="position:relative; background-color: transparent;">
-                Canvas not supported; please update your browser.
-            </canvas>
         </div>
-        
-        <div class="row">
-          <div class="col-md-6" style="display:inline-block;">
-            <p>Frequency = <span style="color:rgb(4, 4, 43)" id="frequencyReadout">5</span> Hz
-            <input oninput="showFrequency();" onchange="showFrequency();" type="range" min="1" max="20" step="1" value="5" id="frequencySlider">
-            </p>
-            <p>Source speed = <span style="color:rgb(4, 4, 43)" id="sourcespeedReadout">0</span> m/s
-            <input oninput="showsourcespeed();" onchange="showsourcespeed();" type="range" min="0" max="360" step="20" value="0" id="sourcespeedSlider">
-            </p>
-            
-          </div>
-          <div class="pull-right col">
-            <button href="javascript:void(0)" onclick="startSim();" class="button">Drive</button>
-          </div>
-          <div class="pull-right col">
-            <button href="javascript:void(0)" onclick="stopSim();" class="button">Pause</button>
-          </div>
-          </div>
-        </div>
-        </div>
-        <p style ="color: #010608; font-family: 'Verdana', sans-serif; font-size: 16px; line-height: 26px; text-indent: 30px; margin: 0;"> Ever wondered why the pitch of sirens passing by drops ? How radars and sonars work ? Or what that huge <i>BOOM!</i> you heard this morning right after you saw a fighter plane fly by was?
-        Well, surprisingly enough, all of that can be explained by one single, simple, physics phenomenom: the Doppler effect!  </p>
       </div>
-		</div>
+      <p
+        style="color: #010608; font-family: 'Verdana', sans-serif; font-size: 16px; line-height: 26px; text-indent: 30px; margin: 0;">
+        Ever wondered why the pitch of sirens passing by drops ? How radars and sonars work ? Or what that huge
+        <i>BOOM!</i> you heard this morning right after you saw a fighter plane fly by was?
+        Well, surprisingly enough, all of that can be explained by one single, simple, physics phenomenom: the Doppler
+        effect!
+        Let's see how it works.
+        When a source (the car in the animation) emits a sound wave,
+      </p>
+    </div>
+  </div>
 
-        <script>
-            class Wave {
-                constructor(x0, y0, speed, radius) {
-                    this.x0 = x0;
-                    this.y0 = y0;
-                    this.speed = speed;
-                    this.radius = radius;
-                    }
-                }
+  <script>
+    class Wave {
+      constructor(x0, y0, speed, radius) {
+        this.x0 = x0;
+        this.y0 = y0;
+        this.speed = speed;
+        this.radius = radius;
+      }
+    }
 
-            
-            function drawWaves() {
-                theContext.clearRect(0, 0, theCanvas.width, theCanvas.height);
-                theContext.drawImage(obs_car, obs_x-25, y);
-                theContext.drawImage(source_car, source_x-25, y);
-                theContext.strokeStyle = "black";
-                waves.forEach(function(wave){
-                    theContext.beginPath();
-                     theContext.arc(wave.x0, y, wave.radius, 0, 2*Math.PI);
-                     theContext.stroke();
-                });
 
-            }
+    function drawWaves() {
+      theContext.clearRect(0, 0, theCanvas.width, theCanvas.height);
+      theContext.drawImage(obs_car, obs_x - 25, y);
+      theContext.drawImage(source_car, source_x - 25, y);
+      theContext.strokeStyle = "black";
+      waves.forEach(function (wave) {
+        theContext.beginPath();
+        theContext.arc(wave.x0, y, wave.radius, 0, 2 * Math.PI);
+        theContext.stroke();
+      });
 
-            function moveProjectile() {
+    }
 
-                source_x += source_speed * dt;
-                obs_x += obs_speed * dt;
-                t += dt;
-                it_count++;
-                waves.forEach(wave => wave.radius += dt*sound_speed);
-                if (it_count * dt > 1./frequency){
-                    waves.push(new Wave(source_x, y, sound_speed + source_speed, 1));
-                    it_count = 0;
-                }
-                
+    function moveProjectile() {
 
-                drawWaves();
+      source_x += source_speed * dt;
+      obs_x += obs_speed * dt;
+      t += dt;
+      it_count++;
+      waves.forEach(wave => wave.radius += dt * sound_speed);
+      if (it_count * dt > 1. / frequency) {
+        waves.push(new Wave(source_x, y, sound_speed + source_speed, 1));
+        it_count = 0;
+      }
 
-                if(source_x < 775 && bool_stop == false){
-                timer = window.setTimeout(moveProjectile, 1000/30);
-                }
-                }
-            
-                function clearArray(array) {
-                    while (array.length) {
-                        array.pop();
-                    }
-                }
 
-            function startSim(){
-                clearTimeout(timer);     // first clear any flight in progress
-                // clear vectors and canvas
-                //v = Number(document.getElementById("v0").value);
-                //y = Number(document.getElementById("h0").value);
-                clearArray(waves);
-                it_count = 0;
-                source_x = 30;
-                obs_x = 625;
-                bool_stop = false;
-                frequency = Number(frequencySlider.value);
-                source_speed = Number(sourcespeedSlider.value)/3.3;
-                t=0;
+      drawWaves();
 
-                moveProjectile();
-            }
-            function stopSim(){
-                bool_stop = true;
-            }
+      if (source_x < 775 && bool_stop == false) {
+        timer = window.setTimeout(moveProjectile, 1000 / 30);
+      }
+    }
 
-            function showFrequency(){
-                frequencyReadout.innerHTML = frequencySlider.value;
-            }
-            function showsourcespeed(){
-                sourcespeedReadout.innerHTML = sourcespeedSlider.value;
-            }
+    function clearArray(array) {
+      while (array.length) {
+        array.pop();
+      }
+    }
 
-            var theCanvas = document.getElementById("free_fall_canvas");
-            var theContext = theCanvas.getContext("2d");
-            var frequencyReadout = document.getElementById("frequencyReadout");
-            var frequencySlider = document.getElementById("frequencySlider");
-            var sourcespeedReadout = document.getElementById("sourcespeedReadout");
-            var sourcespeedSlider = document.getElementById("sourcespeedSlider");
-            var source_car = new Image();
-            var obs_car = new Image();
-            source_car.src = 'images/testc.png';
-            obs_car.src = 'images/carltoleft2.png';
-            const sound_speed = 100; //DON'T FORGET TO RENORMALIZE INPUT SPEEDS ACCORDINGLY
-            var it_count = 0;
-            var dt = 1./30.;
-            var source_speed = 0;
-            var obs_speed = 0;
-            var t = 0;
-            var source_x = 25;
-            var obs_x = 625;
-            var y = 150;
-            var frequency = 5;
-            var bool_stop = false;
-            var time_draw_it = 0;
-            const waves = new Array();
+    function startSim() {
+      clearTimeout(timer);     // first clear any flight in progress
+      // clear vectors and canvas
+      //v = Number(document.getElementById("v0").value);
+      //y = Number(document.getElementById("h0").value);
+      clearArray(waves);
+      it_count = 0;
+      source_x = 30;
+      obs_x = 625;
+      bool_stop = false;
+      frequency = Number(frequencySlider.value);
+      source_speed = Number(sourcespeedSlider.value) / 3.3;
+      t = 0;
 
-            var timer;
-            
-            moveProjectile();
+      moveProjectile();
+    }
+    function stopSim() {
+      bool_stop = true;
+    }
 
-            
-        </script>
+    function showFrequency() {
+      frequencyReadout.innerHTML = frequencySlider.value;
+    }
+    function showsourcespeed() {
+      sourcespeedReadout.innerHTML = sourcespeedSlider.value;
+    }
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+    var theCanvas = document.getElementById("free_fall_canvas");
+    var theContext = theCanvas.getContext("2d");
+    var frequencyReadout = document.getElementById("frequencyReadout");
+    var frequencySlider = document.getElementById("frequencySlider");
+    var sourcespeedReadout = document.getElementById("sourcespeedReadout");
+    var sourcespeedSlider = document.getElementById("sourcespeedSlider");
+    var source_car = new Image();
+    var obs_car = new Image();
+    source_car.src = 'images/testc.png';
+    obs_car.src = 'images/carltoleft2.png';
+    const sound_speed = 100; //DON'T FORGET TO RENORMALIZE INPUT SPEEDS ACCORDINGLY
+    var it_count = 0;
+    var dt = 1. / 30.;
+    var source_speed = 20;
+    var obs_speed = 0;
+    var t = 0;
+    var source_x = 25;
+    var obs_x = 625;
+    var y = 150;
+    var frequency = 5;
+    var bool_stop = false;
+    var time_draw_it = 0;
+    const waves = new Array();
+
+    var timer;
+
+    moveProjectile();
+
+
+  </script>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
+
 </html>

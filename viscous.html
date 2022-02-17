@@ -1,81 +1,98 @@
 <!doctype html>
 <html lang="en">
-  <head>
-  	<title>ViewPhysics</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-		
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="css/style.css">
-  </head>
+<head>
+  <title>ViewPhysics</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <style>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
-    input, select { 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<style>
+  input,
+  select {
     padding: 0;
     margin: 0;
     outline: none;
     font-family: Roboto, Arial, sans-serif;
     font-size: 16px;
     color: #eee;
-    }
-    h1, h3 {
+  }
+
+  h1,
+  h3 {
     font-weight: 400;
-    }
-    h1 {
+  }
+
+  h1 {
     font-size: 32px;
-    }
-    h3 {
+  }
+
+  h3 {
     color: #1c87c9;
-    }
-    .main-block, .info {
+  }
+
+  .main-block,
+  .info {
     display: flex;
     flex-direction: column;
-    }
-    .main-block {
+  }
+
+  .main-block {
     justify-content: center;
     align-items: center;
-    width: 50%; 
+    width: 50%;
     min-height: 50%;
     /*background: url("images/temp_logo.png") no-repeat center;
     background-size: cover;*/
-    }
-    form {
-    width: 100%; 
+  }
+
+  form {
+    width: 100%;
     padding: 25px;
     margin-bottom: 20px;
     background: rgba(0, 0, 0, 0.9);
-    }
-    input, select {
+  }
+
+  input,
+  select {
     padding: 5px;
     margin-bottom: 20px;
     background: transparent;
     border: none;
     border-bottom: 1px solid #eee;
-    }
-    input::placeholder {
+  }
+
+  input::placeholder {
     color: #eee;
-    }
-    option {
-    background: black; 
+  }
+
+  option {
+    background: black;
     border: none;
-    }
-    .metod {
-    display: flex; 
-    }
-    input[type=radio] {
+  }
+
+  .metod {
+    display: flex;
+  }
+
+  input[type=radio] {
     display: none;
-    }
-    label.radio {
+  }
+
+  label.radio {
     position: relative;
     display: inline-block;
     margin-right: 20px;
     text-indent: 32px;
     cursor: pointer;
-    }
-    label.radio:before {
+  }
+
+  label.radio:before {
     content: "";
     position: absolute;
     top: -1px;
@@ -84,8 +101,9 @@
     height: 17px;
     border-radius: 50%;
     border: 2px solid #1c87c9;
-    }
-    label.radio:after {
+  }
+
+  label.radio:after {
     content: "";
     position: absolute;
     width: 8px;
@@ -96,439 +114,462 @@
     border-left: 3px solid #1c87c9;
     transform: rotate(-45deg);
     opacity: 0;
-    }
-    input[type=radio]:checked + label:after {
+  }
+
+  input[type=radio]:checked+label:after {
     opacity: 1;
-    }
-    button {
+  }
+
+  button {
     display: block;
     width: 100px;
     padding: 10px;
     margin: 20px auto 0;
     border: none;
-    border-radius: 5px; 
-    background: #1c87c9; 
+    border-radius: 5px;
+    background: #1c87c9;
     font-size: 14px;
     font-weight: 600;
     color: #fff;
-    }
-    button:hover {
+  }
+
+  button:hover {
     background: #095484;
-    }
-    @media (min-width: 568px) {
+  }
+
+  @media (min-width: 568px) {
     .info {
-    flex-flow: row wrap;
-    justify-content: space-between;
+      flex-flow: row wrap;
+      justify-content: space-between;
     }
+
     input {
-    width: 46%;
+      width: 46%;
     }
+
     input.fname {
-    width: 100%;
+      width: 100%;
     }
+
     select {
-    width: 48%;
+      width: 48%;
     }
-    }
-    canvas {
-  width: 100%;
-  height: auto;
-  background-size: 100% 100%;
-}
+  }
 
-  </style>
-  <body>
-		
-		<div class="wrapper d-flex align-items-stretch">
-			<nav id="sidebar">
-				<div class="p-4 pt-5">
-		  		<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(images/temp_logo.png);"></a>
-	        <ul class="list-unstyled components mb-5">
-	          <li>
-              <a href="index.html">Home</a>
+  canvas {
+    width: 100%;
+    height: auto;
+    background-size: 100% 100%;
+  }
+</style>
+
+<body>
+
+  <div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar">
+      <div class="p-4 pt-5">
+        <a href="index.html" class="img logo rounded-circle mb-5"
+          style="background-image: url(images/temp_logo.png);"></a>
+        <ul class="list-unstyled components mb-5">
+          <li>
+            <a href="index.html">Home</a>
           </li>
-	          <li>
-	              <a href="#">About</a>
-	          </li>
-	          <li>
-              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Simulations</a>
-              <ul class="collapse list-unstyled" id="pageSubmenu">
-                <li>Cinematics</li>
-                <ul>
-                  <li>
-                      <a href="free_fall.html">Free fall</a>
-                  </li>
-                  <li>
-                    <a href="viscous.html"> Viscous friction</a>
-                  </li>
-                </ul>
-                <li>Mechanics</li>
-                <ul>
-                  <li>
-                    <a href="double_pendulum.html">Double pendulum</a>
-                  </li>
-                </ul>
-                <li>Waves</li>
-                <ul>
-                  <li>
-                    <a href="doppler.html">Doppler effect</a>
-                  </li>
-                </ul>
-                <li>Mathematics</li>
-                <ul>
-                  <li>
-                    <a href="convolution.html">Convolution</a>
-                  </li>
-                </ul>
-              </ul>
-	          </li>
-	          <li>
-              <a href="#">Contact</a>
-	          </li>
-	        </ul>
-
-	        <div class="footer">
-	        	<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
-						  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-	        </div>
-
-	      </div>
-    	</nav>
-
-        <!-- Page Content  -->
-      <div id="content" class="p-4 p-md-5">
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container-fluid">
-
-            <button type="button" id="sidebarCollapse" class="btn btn-primary">
-              <i class="fa fa-bars"></i>
-              <span class="sr-only">Toggle Menu</span>
-            </button>
-            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
+          <li>
+            <a href="about.html">About</a>
+          </li>
+          <li>
+            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Simulations</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu">
+              <li>Cinematics</li>
+              <ul>
+                <li>
+                  <a href="free_fall.html">Free fall</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                <li>
+                  <a href="viscous.html"> Viscous friction</a>
                 </li>
               </ul>
-            </div>
-          </div>
-        </nav>
-      <div class="container">
-      <div class="row">
-        <!-- canvas -->
-        <div class="col-md-6">
-            <img src="images/viscous3.jpg" width="300" height="300" style="  opacity: 0.9; position:absolute; width: 94%;
-            height: auto;" >
-            <canvas id="free_fall_canvas" width="300" height="300" style="position:relative; background-color: transparent;">
-                Canvas not supported; please update your browser.
-            </canvas>
+              <li>Mechanics</li>
+              <ul>
+                <li>
+                  <a href="double_pendulum.html">Double pendulum</a>
+                </li>
+              </ul>
+              <li>Waves</li>
+              <ul>
+                <li>
+                  <a href="doppler.html">Doppler effect</a>
+                </li>
+              </ul>
+              <li>Mathematics</li>
+              <ul>
+                <li>
+                  <a href="convolution.html">Convolution</a>
+                </li>
+              </ul>
+            </ul>
+          </li>
+          <li>
+            <a href="contact.html">Contact</a>
+          </li>
+        </ul>
+
+        <div class="footer">
+          <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;
+            <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with
+            <i class="fa fa-heart" style="font-size:15px;color:red" aria-hidden="true"></i> by <a
+              href="https://colorlib.com" target="_blank">Colorlib.com</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
         </div>
-        
-        <div class="pull-right col-md-6">
+
+      </div>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content" class="p-4 p-md-5">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+
+          <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Toggle Menu</span>
+          </button>
+          <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="row">
+          <!-- canvas -->
+          <div class="col-md-6">
+            <img src="images/viscous3.jpg" width="300" height="300" style="  opacity: 0.9; position:absolute; width: 94%;
+            height: auto;">
+            <canvas id="free_fall_canvas" width="300" height="300"
+              style="position:relative; background-color: transparent;">
+              Canvas not supported; please update your browser.
+            </canvas>
+          </div>
+
+          <div class="pull-right col-md-6">
             <canvas id="myChart" width="300" height="100"></canvas>
             <canvas id="myChart2" width="300" height="100"></canvas>
             <canvas id="myChart3" width="300" height="100"></canvas>
           </div>
-        <div class="row">
-          <div class="col-md-6" style="display:inline-block;">
-            Fluid density = <span style="color:rgb(4, 4, 43)" id="densityReadout">1000</span> kg/m^3
-            <input oninput="showDensity();" onchange="showDensity();" type="range" min="1" max="5000" step="100" value="1000" id="densitySlider" >
-            Viscosity = <span style="color:rgb(4, 4, 43)" id="viscosityReadout">0.1</span> Pa.s
-            <input oninput="showViscosity();" onchange="showViscosity();" type="range" min="0.01" max="0.25" step="0.001" value="0.001" id="viscositySlider" >
-          </div>
-          <div class="col">
-            <button href="javascript:void(0)" onclick="startSim();" class="button">Fall!</button>
-          </div>
-          <div class="col">
-            <button href="javascript:void(0)" onclick="stopSim();" class="button">Stop!</button>
-          </div>
+          <div class="row">
+            <div class="col-md-6" style="display:inline-block;">
+              Fluid density = <span style="color:rgb(4, 4, 43)" id="densityReadout">1000</span> kg/m^3
+              <input oninput="showDensity();" onchange="showDensity();" type="range" min="1" max="5000" step="100"
+                value="1000" id="densitySlider">
+              Viscosity = <span style="color:rgb(4, 4, 43)" id="viscosityReadout">0.1</span> Pa.s
+              <input oninput="showViscosity();" onchange="showViscosity();" type="range" min="0.01" max="0.25"
+                step="0.001" value="0.001" id="viscositySlider">
+            </div>
+            <div class="col">
+              <button href="javascript:void(0)" onclick="startSim();" class="button">Fall!</button>
+            </div>
+            <div class="col">
+              <button href="javascript:void(0)" onclick="stopSim();" class="button">Stop!</button>
+            </div>
           </div>
         </div>
-        </div>
-
       </div>
-		</div>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3"></script>
 
-        <script>
-            function drawLineWithArrows(x0,y0,x1,y1,aWidth,aLength,arrowStart,arrowEnd){
-                var dx=x1-x0;
-                var dy=y1-y0;
-                var angle=Math.atan2(dy,dx);
-                var length=Math.sqrt(dx*dx+dy*dy);
-                //
-                theContext.translate(x0,y0);
-                theContext.rotate(angle);
-                theContext.beginPath();
-                theContext.moveTo(0,0);
-                theContext.lineTo(length,0);
-                if(arrowStart){
-                    theContext.moveTo(aLength,-aWidth);
-                    theContext.lineTo(0,0);
-                    theContext.lineTo(aLength,aWidth);
-                }
-                if(arrowEnd){
-                    theContext.moveTo(length-aLength,-aWidth);
-                    theContext.lineTo(length,0);
-                    theContext.lineTo(length-aLength,aWidth);
-                }
-                //
-                theContext.strokeStyle = "#ff0000";
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3"></script>
 
-                theContext.stroke();
-                theContext.setTransform(1,0,0,1,0,0);
-                theContext.fillStyle = "red";
-                theContext.fill();
+  <script>
+    function drawLineWithArrows(x0, y0, x1, y1, aWidth, aLength, arrowStart, arrowEnd) {
+      var dx = x1 - x0;
+      var dy = y1 - y0;
+      var angle = Math.atan2(dy, dx);
+      var length = Math.sqrt(dx * dx + dy * dy);
+      //
+      theContext.translate(x0, y0);
+      theContext.rotate(angle);
+      theContext.beginPath();
+      theContext.moveTo(0, 0);
+      theContext.lineTo(length, 0);
+      if (arrowStart) {
+        theContext.moveTo(aLength, -aWidth);
+        theContext.lineTo(0, 0);
+        theContext.lineTo(aLength, aWidth);
+      }
+      if (arrowEnd) {
+        theContext.moveTo(length - aLength, -aWidth);
+        theContext.lineTo(length, 0);
+        theContext.lineTo(length - aLength, aWidth);
+      }
+      //
+      theContext.strokeStyle = "#ff0000";
+
+      theContext.stroke();
+      theContext.setTransform(1, 0, 0, 1, 0, 0);
+      theContext.fillStyle = "red";
+      theContext.fill();
+    }
+    function writeData() {
+      height_str = 'Height = ' + String(y.toFixed(2)) + 'm';
+      theContext.fillText(height_str, 5, 15);
+      speed_str = 'Speed = ' + String(-v.toFixed(2)) + 'm/s';
+      theContext.fillText(speed_str, 5, 30);
+    }
+
+    function drawProjectile() {
+      theContext.clearRect(0, 0, theCanvas.width, theCanvas.height);
+      theContext.beginPath();
+      theContext.arc(x, theCanvas.height - y, 5, 0, 2 * Math.PI);
+      theContext.fillStyle = "white";
+      theContext.fill();
+      if (Math.abs(force) > 0.001) {
+        drawLineWithArrows(x, theCanvas.height - y, x, theCanvas.height - y + (30 / (metal_density * volume * 9.81)) * Math.abs(force), (7 / (metal_density * volume * 9.81)) * Math.abs(force), (10 / (metal_density * volume * 9.81)) * Math.abs(force), false, true);
+      }
+    }
+
+    function visc_acc(vitesse) {
+      force = (-9.81 * metal_density * volume + 6 * Math.PI * viscosity * Math.pow(volume, 0.33) * Math.abs(v) + density * 9.81 * volume);
+
+      return (-9.81 * metal_density * volume + 6 * Math.PI * viscosity * Math.pow(volume, 0.33) * Math.abs(v) + density * 9.81 * volume) / (metal_density * volume);
+    }
+    function moveProjectile() {
+
+      y += v * (1. / 30.) / 2.;
+      acc = visc_acc(v)
+      v += acc * (1. / 30.);
+
+      y += v * (1. / 30.) / 2.;
+
+      drawProjectile();
+      //writeData();
+
+      t += 1. / 30.; //ms
+      time_draw_it += 1;
+      if (time_draw_it % 15 == 0) {
+        xValues.push(t.toFixed(1));
+        yValues.push(y);
+        vValues.push(-v);
+        aValues.push(acc);
+        lim_speeds.push(lim_speed);
+        updateChart(myChart, yValues);
+        updateChart(myChart2, vValues);
+        updateChart(myChart3, aValues);
+      }
+
+      if (y > 0 && bool_stop == false) {
+        timer = window.setTimeout(moveProjectile, 1000 / 30);
+      }
+    }
+
+    function clearArray(array) {
+      while (array.length) {
+        array.pop();
+      }
+    }
+
+    function startSim() {
+      clearTimeout(timer);     // first clear any flight in progress
+      // clear vectors and canvas
+      //v = Number(document.getElementById("v0").value);
+      //y = Number(document.getElementById("h0").value);
+      clearArray(xValues);
+      clearArray(yValues);
+      clearArray(vValues);
+      clearArray(aValues);
+      clearArray(lim_speeds);
+      bool_stop = false;
+      t = 0;
+      // y = Number(slider.value);
+      y = 300;
+      v = 0;
+      density = Number(densitySlider.value);
+      viscosity = Number(viscositySlider.value);
+      lim_speed = (9.81 * metal_density * volume - density * volume * 9.81) / (6 * Math.PI * viscosity * Math.pow(volume, 0.33));
+      // xValues.push(t);
+      // yValues.push(y);
+      // vValues.push(-v);
+      // aValues.push(acc);
+
+      moveProjectile();
+    }
+    function stopSim() {
+      bool_stop = true;
+    }
+
+    function updateChart(Chart, newdata) {
+      Chart.data.datasets[0].data = newdata;
+      Chart.update();
+    }
+
+    function showDensity() {
+      densityReadout.innerHTML = densitySlider.value;
+    }
+
+    function showViscosity() {
+      viscosityReadout.innerHTML = viscositySlider.value;
+    }
+    var theCanvas = document.getElementById("free_fall_canvas");
+    var theContext = theCanvas.getContext("2d");
+    var densityReadout = document.getElementById("densityReadout");
+    var viscosityReadout = document.getElementById("viscosityReadout");
+    var densitySlider = document.getElementById("densitySlider");
+    var viscositySlider = document.getElementById("viscositySlider");
+
+    theContext.beginPath();
+    theContext.arc(150, 50, 5, 0, 2 * Math.PI);
+    theContext.fillStyle = "white";
+    theContext.font = '10pt Arial';
+    theContext.fill();
+    var v = 0;
+    var t = 0;
+    var x = 150;
+    var y = 300;
+    var force = 0;
+    var volume = Math.pow(10, -6); // 1cm3
+    var density = 1000;
+    var viscosity = 0.01;
+    var metal_density = 7870;
+    var lim_speed = (9.81 * metal_density * volume - density * volume * 9.81) / (6 * Math.PI * viscosity * Math.pow(volume, 0.33));
+    var acc = 9.81;
+    bool_stop = false;
+    time_draw_it = 0;
+    const xValues = [];
+    const yValues = [];
+    const vValues = [];
+    const aValues = [];
+    const lim_speeds = [];
+    var timer;
+    var myChart = new Chart('myChart', {
+      type: "line",
+      data: {
+        labels: xValues,
+        datasets: [{
+          label: 'Height (m)',
+          fill: false,
+          pointRadius: 1,
+          borderColor: "red",
+          data: yValues
+        }]
+      },
+      options:
+      {
+        legend: { display: true },
+        animation: { duration: 0 },
+        scales: {
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Height (m)'
             }
-            function writeData(){
-                height_str = 'Height = ' + String(y.toFixed(2)) + 'm';
-                theContext.fillText(height_str, 5, 15);
-                speed_str = 'Speed = ' + String(-v.toFixed(2)) + 'm/s';
-                theContext.fillText(speed_str, 5, 30);
+          }],
+          xAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Time (s)'
             }
-        
-            function drawProjectile() {
-                theContext.clearRect(0, 0, theCanvas.width, theCanvas.height);
-                theContext.beginPath();
-                theContext.arc(x, theCanvas.height-y, 5, 0, 2*Math.PI);
-                theContext.fillStyle = "white";
-                theContext.fill();
-                if (Math.abs(force) >0.001){
-                drawLineWithArrows(x,theCanvas.height-y,x,theCanvas.height-y+(30/(metal_density*volume*9.81))*Math.abs(force),(7/(metal_density*volume*9.81))*Math.abs(force),(10/(metal_density*volume*9.81))*Math.abs(force),false,true);
-                }
+          }]
+        }
+      }
+    });
+    var myChart2 = new Chart('myChart2', {
+      type: "line",
+      data: {
+        labels: xValues,
+        datasets: [{
+          label: 'Speed (m/s)',
+          fill: false,
+          pointRadius: 1,
+          borderColor: "blue",
+          data: vValues
+        },
+        {
+          label: 'Limit speed (m/s)',
+          fill: false,
+          pointRadius: 1,
+          borderColor: "aqua",
+          data: lim_speeds
+        }]
+      },
+      options: {
+        legend: { display: true },
+        animation: { duration: 0 },
+        scales: {
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Speed (m/s)'
             }
-            
-            function visc_acc(vitesse) {
-                force = (-9.81*metal_density*volume + 6*Math.PI*viscosity*Math.pow(volume,0.33)*Math.abs(v) + density*9.81*volume);
-
-                return (-9.81*metal_density*volume + 6*Math.PI*viscosity*Math.pow(volume,0.33)*Math.abs(v) + density*9.81*volume)/(metal_density*volume);
+          }],
+          xAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Time (s)'
             }
-            function moveProjectile() {
-
-                y += v*(1./30.)/2.;
-                acc = visc_acc(v)
-                v += acc*(1./30.);
-
-                y += v*(1./30.)/2.;
-
-                drawProjectile();
-                //writeData();
-
-                t += 1./30.; //ms
-                time_draw_it += 1;
-                if (time_draw_it%15==0){
-                    xValues.push(t.toFixed(1));
-                    yValues.push(y);
-                    vValues.push(-v);
-                    aValues.push(acc);
-                    lim_speeds.push(lim_speed);
-                    updateChart(myChart, yValues);
-                    updateChart(myChart2, vValues);
-                    updateChart(myChart3, aValues);
-                }
-
-                if(y>0 && bool_stop == false){
-                timer = window.setTimeout(moveProjectile, 1000/30);
-                }
-                }
-            
-                function clearArray(array) {
-                    while (array.length) {
-                        array.pop();
-                    }
-                }
-
-            function startSim(){
-                clearTimeout(timer);     // first clear any flight in progress
-                // clear vectors and canvas
-                //v = Number(document.getElementById("v0").value);
-                //y = Number(document.getElementById("h0").value);
-                clearArray(xValues);
-                clearArray(yValues);
-                clearArray(vValues);
-                clearArray(aValues);
-                clearArray(lim_speeds);
-                bool_stop = false;
-                t=0;
-               // y = Number(slider.value);
-                y=300;
-                v=0;
-                density = Number(densitySlider.value);
-                viscosity = Number(viscositySlider.value);
-                lim_speed = (9.81*metal_density*volume - density*volume*9.81)/(6*Math.PI*viscosity*Math.pow(volume,0.33));
-                // xValues.push(t);
-                // yValues.push(y);
-                // vValues.push(-v);
-                // aValues.push(acc);
-
-                moveProjectile();
+          }]
+        }
+      }
+    });
+    var myChart3 = new Chart('myChart3', {
+      type: "line",
+      data: {
+        labels: xValues,
+        datasets: [{
+          label: 'Acceleration (m/s^2)',
+          fill: false,
+          pointRadius: 1,
+          borderColor: "orange",
+          data: aValues
+        }]
+      },
+      options: {
+        legend: { display: true },
+        animation: { duration: 0 },
+        scales: {
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Acceleration (m/s^2)'
             }
-            function stopSim(){
-                bool_stop = true;
+          }],
+          xAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Time (s)'
             }
+          }]
+        }
+      }
+    });
 
-            function updateChart(Chart, newdata){
-                Chart.data.datasets[0].data = newdata;
-                Chart.update();  
-            }
+    moveProjectile();
 
-            function showDensity() {
-                densityReadout.innerHTML = densitySlider.value;
-                }
-            
-            function showViscosity() {
-                viscosityReadout.innerHTML = viscositySlider.value;
-                }
-            var theCanvas = document.getElementById("free_fall_canvas");
-            var theContext = theCanvas.getContext("2d");
-            var densityReadout = document.getElementById("densityReadout");
-            var viscosityReadout = document.getElementById("viscosityReadout");
-            var densitySlider = document.getElementById("densitySlider");
-            var viscositySlider = document.getElementById("viscositySlider");
 
-            theContext.beginPath();
-            theContext.arc(150, 50, 5, 0, 2*Math.PI);
-            theContext.fillStyle = "white";
-            theContext.font = '10pt Arial';
-            theContext.fill();
-            var v = 0;
-            var t = 0;
-            var x = 150;
-            var y = 300;
-            var force = 0;
-            var volume = Math.pow(10,-6); // 1cm3
-            var density = 1000;
-            var viscosity = 0.01;
-            var metal_density = 7870;
-            var lim_speed = (9.81*metal_density*volume - density*volume*9.81)/(6*Math.PI*viscosity*Math.pow(volume,0.33));
-            var acc = 9.81;
-            bool_stop = false;
-            time_draw_it = 0;
-            const xValues = [];
-            const yValues = [];
-            const vValues = [];
-            const aValues = [];
-            const lim_speeds = [];
-            var timer;
-            var myChart = new Chart('myChart', {
-                type: "line",
-                data: {
-                    labels: xValues,
-                    datasets: [{
-                    label: 'Height (m)',
-                    fill: false,
-                    pointRadius: 1,
-                    borderColor: "red",
-                    data: yValues
-                    }]
-                },
-                options: 
-                    {legend: {display: true},
-                     animation: {duration: 0},
-                     scales: {
-                            yAxes: [{
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Height (m)'
-                                }
-                            }],
-                            xAxes: [{
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Time (s)'
-                                }
-                            }]
-                        }     
-                    }
-                });
-            var myChart2 = new Chart('myChart2', {
-                type: "line",
-                data: {
-                    labels: xValues,
-                    datasets: [{
-                    label: 'Speed (m/s)',
-                    fill: false,
-                    pointRadius: 1,
-                    borderColor: "blue",
-                    data: vValues
-                    },                    
-                    {
-                    label: 'Limit speed (m/s)',
-                    fill: false,
-                    pointRadius: 1,
-                    borderColor: "aqua",
-                    data: lim_speeds
-                    }]
-                },
-                options: {legend: {display: true},
-                     animation: {duration: 0},
-                     scales: {
-                            yAxes: [{
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Speed (m/s)'
-                                }
-                            }],
-                            xAxes: [{
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Time (s)'
-                                }
-                            }]
-                        } 
-                    }
-                });
-            var myChart3 = new Chart('myChart3', {
-                type: "line",
-                data: {
-                    labels: xValues,
-                    datasets: [{
-                    label: 'Acceleration (m/s^2)',
-                    fill: false,
-                    pointRadius: 1,
-                    borderColor: "orange",
-                    data: aValues
-                    }]
-                },
-                options: {legend: {display: true},
-                     animation: {duration: 0},
-                     scales: {
-                            yAxes: [{
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Acceleration (m/s^2)'
-                                }
-                            }],
-                            xAxes: [{
-                            scaleLabel: {
-                                display: true,
-                                labelString: 'Time (s)'
-                                }
-                            }]
-                        } 
-                    }
-                });
-            
-            moveProjectile();
+  </script>
 
-            
-        </script>
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
+
 </html>
