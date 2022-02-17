@@ -259,17 +259,18 @@
           </div>
         </div>
       </nav>
+      <p>WORK IN PROGRESS</p>
       <div class="container">
         <div class="row">
           <!-- canvas -->
           <div class="col-md-9">
-            <canvas id="convolution_canvas" width="550" height="150"
-              style="position:relative; background-color: transparent; border: 1px solid black;">
+            <canvas id="convolution_canvas1" width="550" height="150"
+              style="position:relative; background-color: rgba(255, 0, 0, 0);; border: 1px solid black;">
               Canvas not supported; please update your browser.
             </canvas>
           </div>
           <div class="col-md-9">
-            <canvas id="convolution_canvas_2" width="550" height="150"
+            <canvas id="convolution_canvas2" width="550" height="150"
               style="position:relative; background-color: transparent; border: 1px solid black;">
               Canvas not supported; please update your browser.
             </canvas>
@@ -280,29 +281,37 @@
               <button href="javascript:void(0)" onclick="startSim();" class="button">Start</button>
             </div>
             <div class="pull-right col">
-              <button href="javascript:void(0)" onclick="stopSim();" class="button">Pause</button>
+              <button id="pauseBtn" href="javascript:void(0)" onclick="stop_resume_Sim();" class="button">Pause</button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3"></script>
+  <script src="js/conv_functions.js"></script>
+  <script src="https://gist.github.com/jdpigeon/1de0b43eed7ae7e4080818cad53be200.js"></script>
   <script>
 
-    function draw() {
-      theContext.clearRect(0, 0, theCanvas.width, theCanvas.height);
-
+    function update_graph1(){
+      myChart1.data.datasets[1].data = func1;
+      myChart1.update();
     }
 
+    function shift_func(){
+      for(let i=0; i< xValues.length; i++){
+        func1[i] = Gaussian(xValues[i], init_mu+dt);
+      }
+    }
+
+
     function move() {
-
-
-
-      draw();
-
-      if (bool_stop == false) {
-        timer = window.setTimeout(moveProjectile, 1000 / 30);
+      shift_func(); // will regenerate the curve slightly offset to the right by dt.
+      get_tofill_curve(func1, func2);
+      update_graph1();
+      dt += 0.04;
+      if (bool_stop == false && dt<17) {
+        timer = window.setTimeout(move, 1000 / 30);
       }
     }
 
@@ -313,34 +322,92 @@
     }
 
     function startSim() {
-      clearTimeout(timer);     // first clear any flight in progress
-      // clear vectors and canvas
-
-      clearArray(waves);
-
+      clearTimeout(timer); 
       bool_stop = false;
-
-      t = 0;
-
+      dt=0;
       move();
     }
-    function stopSim() {
-      bool_stop = true;
+
+    function stop_resume_Sim() {
+      bool_stop = !bool_stop;
+      if (bool_stop) {
+        btn.innerHTML = "Resume"
+      }
+      else {
+        btn.innerHTML = "Pause"
+        move();
+      }
     }
 
-    function Gaussian(x, mu) {
-      return Math.pow(Math.E, -Math.pow(x - mu, 2) / 2) / Math.sqrt(2 * Math.PI);
+    function get_tofill_curve(func1, func2) {
+
+      for (let i=0; i<func1.length; i++){
+        min = func1[i] < func2[i] ? func1[i] : func2[i];
+        tofill_curve[i] = min;
+      }
     }
-    function door(x) {
-      return 1;
-    }
-    var theCanvas = document.getElementById("convolution_canvas");
-    var theContext = theCanvas.getContext("2d");
 
     var bool_stop = false;
+    var btn = document.getElementById("pauseBtn");
+    btn.innerHTML = 'Pause';
 
-    var xValues = [];
-    var myChart = new Chart('convolution_canvas', {
+    var tofill_curve = xValues.slice();
+    var func1 = y_gaussian1;
+    var func2 = y_gaussian2;
+    get_tofill_curve(func1, func2);
+    var dt=0
+    var timer;
+    const convolved = convolve(gen_gauss,gen_gauss);
+    var myChart1 = new Chart('convolution_canvas1', {
+      type: "line",
+      data: {
+        labels: xValues,
+        datasets: [{
+          label: 'h(x)',
+          fill: 'origin',
+          pointRadius: 1,
+          borderColor: "#00000000",
+          //fillColor: "blue",
+          backgroundColor: ["#c382f5"],
+          data: tofill_curve
+        },{
+          label: 'f(x)',
+          fill: false,
+          pointRadius: 1,
+          borderColor: "red",
+          data: func1
+        }, {
+          label: 'g(x)',
+          fill: false,
+          pointRadius: 1,
+          borderColor: "blue",
+          data: func2
+        }
+        ]
+      },
+      options:
+      {
+        legend: { display: false },
+        animation: { duration: 0 },
+        datasetFill:true,
+        scales: {
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'f(x)'
+            }
+          }],
+          xAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'x'
+            }
+          }]
+        }
+      }
+    });
+
+    var myChart2 = new Chart('convolution_canvas2', {
       type: "line",
       data: {
         labels: xValues,
@@ -349,12 +416,12 @@
           fill: false,
           pointRadius: 1,
           borderColor: "red",
-          data: yValues
+          data: convolved
         }]
       },
       options:
       {
-        legend: { display: true },
+        legend: { display: false },
         animation: { duration: 0 },
         scales: {
           yAxes: [{
@@ -372,7 +439,7 @@
         }
       }
     });
-    move();
+    //move();
 
 
   </script>
